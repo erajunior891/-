@@ -47,12 +47,11 @@
         "gladiator_combat": "controller.animation.colosseum.gladiator.attack"
       },
       "render_controllers": [
-        "controller.render.default",
+        "controller.render.gladiator",
         "controller.render.gladiator_plume"
       ],
       "enable_attachables": true,
       "spawn_egg": {
-        "texture": "egg_gladiator_champion",
         "base_color": "#73197D",
         "overlay_color": "#FFDC3C"
       }

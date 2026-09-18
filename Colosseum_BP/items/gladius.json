@@ -22,6 +22,9 @@
       "minecraft:enchantable": {
         "value": 15,
         "slot": "sword"
+      },
+      "minecraft:display_name": {
+        "value": "item.colosseum:gladius.name"
       }
     }
   }

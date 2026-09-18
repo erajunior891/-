@@ -1,25 +1,36 @@
 ## Colosseum Add-on Localization - English
-pack.name=§cColosseum RP§r §7[1.26+]§r
-pack.description=Resource pack for Colosseum Add-on: gladiator skins, weapons, coins and arena trophies.
+pack.name=§cColosseum§r §7[1.26+]§r
+pack.description=Colosseum Add-on: gladiator battles, waves, economy and rewards.
 
 ## Items
-item.colosseum:coin.name=Arena Sestertius
+item.colosseum:coin=Colosseum Sestertius
+item.colosseum:coin.name=Colosseum Sestertius
+item.colosseum:start_fight=Colosseum War Horn
 item.colosseum:start_fight.name=Colosseum War Horn
+item.colosseum:gladius=Arena Gladius
 item.colosseum:gladius.name=Arena Gladius
+item.colosseum:shield=Gladiator Shield (Scutum)
 item.colosseum:shield.name=Gladiator Shield (Scutum)
-item.colosseum:trophy.name=Colosseum Victor's Cup
+item.colosseum:trophy=Colosseum Victor Trophy
+item.colosseum:trophy.name=Colosseum Victor Trophy
 
 ## Entities
+entity.colosseum:gladiator_normal=Gladiator
 entity.colosseum:gladiator_normal.name=Gladiator
+entity.colosseum:gladiator_heavy=Heavy Gladiator
 entity.colosseum:gladiator_heavy.name=Heavy Gladiator
-entity.colosseum:gladiator_fast.name=Agile Gladiator
+entity.colosseum:gladiator_fast=Fast Gladiator
+entity.colosseum:gladiator_fast.name=Fast Gladiator
+entity.colosseum:gladiator_archer=Gladiator Archer
 entity.colosseum:gladiator_archer.name=Gladiator Archer
+entity.colosseum:gladiator_champion=Colosseum Champion
 entity.colosseum:gladiator_champion.name=Colosseum Champion
+entity.colosseum:gladiator_boss=Arena Emperor (Boss)
 entity.colosseum:gladiator_boss.name=Arena Emperor (Boss)
 
 item.spawn_egg.entity.colosseum:gladiator_normal.name=Spawn Gladiator
 item.spawn_egg.entity.colosseum:gladiator_heavy.name=Spawn Heavy Gladiator
-item.spawn_egg.entity.colosseum:gladiator_fast.name=Spawn Agile Gladiator
+item.spawn_egg.entity.colosseum:gladiator_fast.name=Spawn Fast Gladiator
 item.spawn_egg.entity.colosseum:gladiator_archer.name=Spawn Gladiator Archer
 item.spawn_egg.entity.colosseum:gladiator_champion.name=Spawn Colosseum Champion
 item.spawn_egg.entity.colosseum:gladiator_boss.name=Spawn Arena Emperor

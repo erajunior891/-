@@ -8,7 +8,7 @@ export const ARENA_CONFIG = {
   // Настройки расположения арены:
   // Если useDynamicCenter = true, центром арены станет место игрока, использовавшего боевой рог.
   // Если false, используются фиксированные координаты fixedCenter.
-  useDynamicCenter: false,
+  useDynamicCenter: true,
 
   fixedCenter: {
     x: 0,

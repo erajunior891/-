@@ -17,6 +17,9 @@
       },
       "minecraft:wearable": {
         "slot": "slot.weapon.offhand"
+      },
+      "minecraft:display_name": {
+        "value": "item.colosseum:shield.name"
       }
     }
   }

@@ -1,20 +1,31 @@
-## Colosseum BP Russian Localization
-pack.name=§cКолизей BP§r §7[1.26+]§r
-pack.description=Поведение аддона Колизей: автоматические волны, мультиплеер, ИИ гладиаторов и сестерции.
+## Colosseum Add-on Localization - Russian
+pack.name=§cКолизей§r §7[1.26+]§r
+pack.description=Аддон Колизей: гладиаторские бои, волны, экономика и награды.
 
 ## Items
+item.colosseum:coin=Сестерций арены
 item.colosseum:coin.name=Сестерций арены
+item.colosseum:start_fight=Боевой рог Колизея
 item.colosseum:start_fight.name=Боевой рог Колизея
+item.colosseum:gladius=Гладиус арены
 item.colosseum:gladius.name=Гладиус арены
+item.colosseum:shield=Щит гладиатора (Скутум)
 item.colosseum:shield.name=Щит гладиатора (Скутум)
+item.colosseum:trophy=Кубок триумфатора Колизея
 item.colosseum:trophy.name=Кубок триумфатора Колизея
 
 ## Entities
+entity.colosseum:gladiator_normal=Гладиатор
 entity.colosseum:gladiator_normal.name=Гладиатор
+entity.colosseum:gladiator_heavy=Тяжёлый гладиатор
 entity.colosseum:gladiator_heavy.name=Тяжёлый гладиатор
+entity.colosseum:gladiator_fast=Быстрый гладиатор
 entity.colosseum:gladiator_fast.name=Быстрый гладиатор
+entity.colosseum:gladiator_archer=Гладиатор-лучник
 entity.colosseum:gladiator_archer.name=Гладиатор-лучник
+entity.colosseum:gladiator_champion=Чемпион Колизея
 entity.colosseum:gladiator_champion.name=Чемпион Колизея
+entity.colosseum:gladiator_boss=Император Арены (Босс)
 entity.colosseum:gladiator_boss.name=Император Арены (Босс)
 
 item.spawn_egg.entity.colosseum:gladiator_normal.name=Яйцо призыва гладиатора

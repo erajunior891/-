@@ -46,13 +46,12 @@
         "bow_and_arrow": "animation.humanoid.bow_and_arrow"
       },
       "render_controllers": [
-        "controller.render.default"
+        "controller.render.gladiator"
       ],
       "enable_attachables": true,
       "spawn_egg": {
-        "texture": "egg_gladiator_archer",
-        "base_color": "#375A2D",
-        "overlay_color": "#9B6432"
+        "base_color": "#375F2D",
+        "overlay_color": "#B48237"
       }
     }
   }
