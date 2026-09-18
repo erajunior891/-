@@ -1,0 +1,36 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "§cКолизей BP§r §7[1.26+]§r",
+    "description": "Поведение аддона Колизей: автоматические волны, мультиплеер, ИИ гладиаторов и сестерции.",
+    "uuid": "a9e9115a-444e-4edb-9be0-d1b096832156",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "description": "Colosseum Behavior Data",
+      "type": "data",
+      "uuid": "86b070ef-1a73-4ae5-a709-912dbf031198",
+      "version": [1, 0, 0]
+    },
+    {
+      "description": "Colosseum Script Engine",
+      "type": "script",
+      "language": "javascript",
+      "uuid": "0cf405f0-1670-48a8-9d97-922d9e433b9c",
+      "entry": "scripts/main.js",
+      "version": [1, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.14.0"
+    },
+    {
+      "uuid": "db66ae90-dc2f-4596-b158-dd331d3ad158",
+      "version": [1, 0, 0]
+    }
+  ]
+}

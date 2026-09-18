@@ -1,0 +1,28 @@
+{
+  "format_version": "1.20.50",
+  "minecraft:item": {
+    "description": {
+      "identifier": "colosseum:gladius",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.sword"
+      }
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "colosseum_gladius"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:damage": 8,
+      "minecraft:durability": {
+        "max_durability": 1561
+      },
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "sword"
+      }
+    }
+  }
+}

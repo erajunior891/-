@@ -1,0 +1,25 @@
+## Colosseum BP English Localization
+pack.name=§cColosseum BP§r §7[1.26+]§r
+pack.description=Behavior pack for Colosseum: automated waves, multiplayer support, gladiator AI and sesterces.
+
+## Items
+item.colosseum:coin.name=Arena Sestertius
+item.colosseum:start_fight.name=Colosseum War Horn
+item.colosseum:gladius.name=Arena Gladius
+item.colosseum:shield.name=Gladiator Shield (Scutum)
+item.colosseum:trophy.name=Colosseum Victor's Cup
+
+## Entities
+entity.colosseum:gladiator_normal.name=Gladiator
+entity.colosseum:gladiator_heavy.name=Heavy Gladiator
+entity.colosseum:gladiator_fast.name=Agile Gladiator
+entity.colosseum:gladiator_archer.name=Gladiator Archer
+entity.colosseum:gladiator_champion.name=Colosseum Champion
+entity.colosseum:gladiator_boss.name=Arena Emperor (Boss)
+
+item.spawn_egg.entity.colosseum:gladiator_normal.name=Spawn Gladiator
+item.spawn_egg.entity.colosseum:gladiator_heavy.name=Spawn Heavy Gladiator
+item.spawn_egg.entity.colosseum:gladiator_fast.name=Spawn Agile Gladiator
+item.spawn_egg.entity.colosseum:gladiator_archer.name=Spawn Gladiator Archer
+item.spawn_egg.entity.colosseum:gladiator_champion.name=Spawn Colosseum Champion
+item.spawn_egg.entity.colosseum:gladiator_boss.name=Spawn Arena Emperor

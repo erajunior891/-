@@ -1,0 +1,121 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.colosseum.gladiator.idle": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "position": [
+            0,
+            "math.sin(query.life_time * 60.0) * 0.15",
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "variable.is_holding_right ? -18.0 : 0.0",
+            "variable.is_holding_right ? 5.0 : 0.0",
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "variable.is_holding_left ? -22.0 : 0.0",
+            "variable.is_holding_left ? 16.0 : 0.0",
+            "variable.is_holding_left ? 10.0 : 0.0"
+          ]
+        }
+      }
+    },
+    "animation.colosseum.gladiator.move.legs": {
+      "loop": true,
+      "bones": {
+        "root": {
+          "position": [
+            0,
+            "query.is_on_ground * (math.cos(query.modified_distance_moved * -75.0) * query.modified_move_speed * 0.4)",
+            0
+          ]
+        },
+        "leftLeg": {
+          "rotation": [
+            "variable.tcos0 * -1.4",
+            0,
+            0
+          ]
+        },
+        "rightLeg": {
+          "rotation": [
+            "variable.tcos0 * 1.4",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.colosseum.gladiator.move.arms": {
+      "loop": true,
+      "bones": {
+        "rightArm": {
+          "rotation": [
+            "variable.is_holding_right ? (-22.0 + (variable.tcos0 * 0.15)) : -variable.tcos0",
+            "variable.is_holding_right ? 5.0 : 0.0",
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "variable.is_holding_left ? -24.0 : variable.tcos0",
+            "variable.is_holding_left ? 18.0 : 0.0",
+            "variable.is_holding_left ? 12.0 : 0.0"
+          ]
+        }
+      }
+    },
+    "animation.colosseum.gladiator.sprint": {
+      "loop": true,
+      "bones": {
+        "root": {
+          "rotation": [
+            "query.modified_move_speed * 6.0",
+            0,
+            "math.clamp(query.yaw_speed * -0.2, -5.0, 5.0)"
+          ]
+        },
+        "waist": {
+          "rotation": [
+            0,
+            0,
+            "math.clamp(query.yaw_speed * -0.25, -6.0, 6.0)"
+          ]
+        }
+      }
+    },
+    "animation.colosseum.gladiator.attack": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            0,
+            "variable.attack_body_rot_y",
+            0
+          ]
+        },
+        "leftArm": {
+          "rotation": [
+            "-(math.sin((1.0 - math.pow((1.0 - variable.attack_time), 4.0)) * 180.0) * 1.2 + math.sin(variable.attack_time * 180.0)) * 10.0",
+            0,
+            0
+          ]
+        },
+        "rightArm": {
+          "rotation": [
+            "-(math.sin((1.0 - math.pow((1.0 - variable.attack_time), 4.0)) * 180.0) * 1.2 + math.sin(variable.attack_time * 180.0)) * 35.0",
+            "-(math.sin((1.0 - math.pow((1.0 - variable.attack_time), 4.0)) * 180.0) ? (-80.0 * math.sin((1.0 - math.pow((1.0 - variable.attack_time), 4.0)) * 180.0)) + 30.0 : 0.0)",
+            0
+          ]
+        }
+      }
+    }
+  }
+}

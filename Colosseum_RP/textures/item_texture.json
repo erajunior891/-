@@ -1,0 +1,39 @@
+{
+  "resource_pack_name": "colosseum",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "colosseum_coin": {
+      "textures": "textures/items/coin"
+    },
+    "colosseum_start_fight": {
+      "textures": "textures/items/start_fight"
+    },
+    "colosseum_gladius": {
+      "textures": "textures/items/gladius"
+    },
+    "colosseum_shield": {
+      "textures": "textures/items/shield"
+    },
+    "colosseum_trophy": {
+      "textures": "textures/items/trophy"
+    },
+    "egg_gladiator_normal": {
+      "textures": "textures/items/egg_gladiator_normal"
+    },
+    "egg_gladiator_heavy": {
+      "textures": "textures/items/egg_gladiator_heavy"
+    },
+    "egg_gladiator_fast": {
+      "textures": "textures/items/egg_gladiator_fast"
+    },
+    "egg_gladiator_archer": {
+      "textures": "textures/items/egg_gladiator_archer"
+    },
+    "egg_gladiator_champion": {
+      "textures": "textures/items/egg_gladiator_champion"
+    },
+    "egg_gladiator_boss": {
+      "textures": "textures/items/egg_gladiator_boss"
+    }
+  }
+}

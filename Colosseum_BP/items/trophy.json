@@ -1,0 +1,19 @@
+{
+  "format_version": "1.20.50",
+  "minecraft:item": {
+    "description": {
+      "identifier": "colosseum:trophy",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "colosseum_trophy"
+      },
+      "minecraft:max_stack_size": 16,
+      "minecraft:glint": true,
+      "minecraft:hover_text_color": "yellow"
+    }
+  }
+}
