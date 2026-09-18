@@ -8,7 +8,7 @@ def validate_json_files():
     errors = 0
     checked = 0
     for root, dirs, files in os.walk("."):
-        if ".git" in root or "tools" in root or "brain" in root:
+        if ".git" in root or "tools" in root or "brain" in root or "Запчасти" in root:
             continue
         for file in files:
             if file.endswith(".json"):

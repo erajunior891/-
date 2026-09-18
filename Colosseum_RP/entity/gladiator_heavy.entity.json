@@ -7,10 +7,12 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/gladiator_heavy"
+        "default": "textures/entity/gladiator_heavy",
+        "helmet": "textures/entity/knights_closed_helmet"
       },
       "geometry": {
-        "default": "geometry.gladiator"
+        "default": "geometry.gladiator",
+        "helmet": "geometry.gladiator_heavy_helmet"
       },
       "scripts": {
         "scale": "0.9375",
@@ -45,7 +47,8 @@
         "gladiator_combat": "controller.animation.colosseum.gladiator.attack"
       },
       "render_controllers": [
-        "controller.render.default"
+        "controller.render.default",
+        "controller.render.gladiator_helmet"
       ],
       "enable_attachables": true,
       "spawn_egg": {

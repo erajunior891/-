@@ -7,10 +7,12 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/gladiator_champion"
+        "default": "textures/entity/gladiator_champion",
+        "plume": "textures/entity/knights_big_plume_red"
       },
       "geometry": {
-        "default": "geometry.gladiator"
+        "default": "geometry.gladiator",
+        "plume": "geometry.gladiator_plume"
       },
       "scripts": {
         "scale": "0.9375",
@@ -45,7 +47,8 @@
         "gladiator_combat": "controller.animation.colosseum.gladiator.attack"
       },
       "render_controllers": [
-        "controller.render.default"
+        "controller.render.default",
+        "controller.render.gladiator_plume"
       ],
       "enable_attachables": true,
       "spawn_egg": {
