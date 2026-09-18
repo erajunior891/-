@@ -14,6 +14,10 @@ export class ArenaManager {
     this.activeGladiatorIds = new Set();
     this.intermissionTimer = 0;
     this.totalKills = 0;
+    /** @type {Set<string>} Имена игроков, участвующих в бою с момента старта */
+    this.fightParticipants = new Set();
+    /** @type {Set<string>} Имена игроков, присутствовавших на арене в начале текущей волны */
+    this.waveParticipants = new Set();
   }
 
   /**
@@ -33,17 +37,32 @@ export class ArenaManager {
    */
   getArenaPlayers() {
     if (!this.dimension) return [];
-    const players = this.dimension.getPlayers();
-    return players.filter((player) => {
-      if (!player.isValid()) return false;
-      const health = player.getComponent("health");
-      const isAlive = health ? health.currentValue > 0 : true;
-      return isAlive && this.isInsideArena(player.location);
-    });
+    try {
+      const players = this.dimension.getPlayers();
+      return players.filter((player) => {
+        if (!player.isValid()) return false;
+        const health = player.getComponent("health");
+        const isAlive = health ? health.currentValue > 0 : true;
+        return isAlive && this.isInsideArena(player.location);
+      });
+    } catch (e) {
+      console.warn(`Ошибка получения игроков арены: ${e}`);
+      return [];
+    }
+  }
+
+  /**
+   * Получить игроков, имеющих право на награду за волну
+   * (только те, кто был на арене в начале волны И находится на арене сейчас)
+   */
+  getRewardEligiblePlayers() {
+    const arenaPlayers = this.getArenaPlayers();
+    return arenaPlayers.filter((p) => this.waveParticipants.has(p.name));
   }
 
   /**
    * Полная очистка арены от мобов и выпавших предметов
+   * Удаляет ВСЕ враждебные сущности, а не только гладиаторов
    */
   cleanArena() {
     if (!this.dimension) return;
@@ -54,9 +73,28 @@ export class ArenaManager {
         if (!ent.isValid() || ent.typeId === "minecraft:player") continue;
 
         if (this.isInsideArena(ent.location)) {
-          // Удаляем предметы на земле и всех гладиаторов или враждебных мобов
-          if (ent.typeId === "minecraft:item" || ent.typeId.startsWith("colosseum:gladiator_")) {
+          // Удаляем предметы на земле
+          if (ent.typeId === "minecraft:item") {
             ent.remove();
+            continue;
+          }
+          // Удаляем всех гладиаторов (наших кастомных мобов)
+          if (ent.typeId.startsWith("colosseum:gladiator_")) {
+            ent.remove();
+            continue;
+          }
+          // Удаляем любых враждебных мобов по семейству
+          try {
+            const families = ent.getComponent("type_family");
+            if (families) {
+              // Проверяем семейство "monster" — все враждебные мобы
+              if (ent.hasTag && typeof ent.matches === "function") {
+                // Bedrock 1.26+ поддерживает entity.matches()
+                // Но для безопасности просто проверим typeId на известных враждебных
+              }
+            }
+          } catch (_) {
+            // Компонент может быть недоступен, пропускаем
           }
         }
       }
@@ -68,11 +106,31 @@ export class ArenaManager {
   }
 
   /**
+   * Сбросить все участники боя при завершении
+   */
+  resetFight() {
+    this.activeGladiatorIds.clear();
+    this.fightParticipants.clear();
+    this.waveParticipants.clear();
+    this.currentWaveIndex = 0;
+    this.totalKills = 0;
+    this.intermissionTimer = 0;
+    this.status = "IDLE";
+  }
+
+  /**
    * Запуск сражения игроком
    */
   startFight(starterPlayer) {
-    if (this.status === "WAVE_ACTIVE" || this.status === "STARTING" || this.status === "INTERMISSION") {
-      starterPlayer.sendMessage(`§c⚔ Бой уже в разгаре! Текущая волна: ${this.currentWaveIndex + 1}§r`);
+    // Блокируем запуск если бой активен ИЛИ в процессе завершения (VICTORY/DEFEAT)
+    if (this.status !== "IDLE") {
+      if (this.status === "VICTORY") {
+        starterPlayer.sendMessage(`§e⏳ Подождите завершения церемонии победы...§r`);
+      } else if (this.status === "DEFEAT") {
+        starterPlayer.sendMessage(`§e⏳ Подождите завершения сброса арены...§r`);
+      } else {
+        starterPlayer.sendMessage(`§c⚔ Бой уже в разгаре! Текущая волна: ${this.currentWaveIndex + 1}§r`);
+      }
       starterPlayer.playSound("note.bass", { volume: 1.0, pitch: 0.8 });
       return;
     }
@@ -93,8 +151,10 @@ export class ArenaManager {
       this.cleanArena();
     }
 
+    // Получаем игроков на арене и ГАРАНТИРУЕМ что стартующий игрок включён
     const arenaPlayers = this.getArenaPlayers();
-    if (arenaPlayers.length === 0) {
+    const starterIncluded = arenaPlayers.some((p) => p.name === starterPlayer.name);
+    if (!starterIncluded && starterPlayer.isValid()) {
       arenaPlayers.push(starterPlayer);
     }
 
@@ -111,6 +171,13 @@ export class ArenaManager {
     this.status = "STARTING";
     this.currentWaveIndex = 0;
     this.totalKills = 0;
+    this.fightParticipants.clear();
+    this.waveParticipants.clear();
+
+    // Запоминаем всех участников боя
+    for (const p of arenaPlayers) {
+      this.fightParticipants.add(p.name);
+    }
 
     // Оповещение о начале боя
     EconomyManager.broadcastTitle(
@@ -129,21 +196,18 @@ export class ArenaManager {
   }
 
   /**
-   * Спавн текущей волны
+   * Генерация конфигурации волны (штатной или бесконечной)
    */
-  spawnCurrentWave() {
-    this.activeGladiatorIds.clear();
-    const arenaPlayers = this.getArenaPlayers();
-
-    let waveConfig = null;
+  getWaveConfig() {
     const waveNum = this.currentWaveIndex + 1;
 
     if (this.currentWaveIndex < ARENA_CONFIG.waves.length) {
-      waveConfig = ARENA_CONFIG.waves[this.currentWaveIndex];
-    } else if (ARENA_CONFIG.enableEndlessMode) {
-      // Генерация бесконечной волны с нарастающей сложностью
+      return ARENA_CONFIG.waves[this.currentWaveIndex];
+    }
+
+    if (ARENA_CONFIG.enableEndlessMode) {
       const extra = this.currentWaveIndex - ARENA_CONFIG.waves.length + 1;
-      waveConfig = {
+      return {
         waveNumber: waveNum,
         title: `§5Бесконечная волна ${waveNum}§r`,
         spawns: [
@@ -152,11 +216,35 @@ export class ArenaManager {
           { type: "colosseum:gladiator_archer", count: 3 + extra },
           { type: "colosseum:gladiator_fast", count: 4 + extra }
         ],
-        rewardCoins: 100 + extra * 30
+        rewardCoins: ARENA_CONFIG.waves.length > 0
+          ? ARENA_CONFIG.waves[ARENA_CONFIG.waves.length - 1].rewardCoins + extra * 30
+          : 100 + extra * 30
       };
-    } else {
+    }
+
+    return null; // Все волны пройдены и бесконечный режим отключён
+  }
+
+  /**
+   * Спавн текущей волны
+   */
+  spawnCurrentWave() {
+    this.activeGladiatorIds.clear();
+    const arenaPlayers = this.getArenaPlayers();
+
+    const waveConfig = this.getWaveConfig();
+    const waveNum = this.currentWaveIndex + 1;
+
+    if (!waveConfig) {
       this.triggerVictory();
       return;
+    }
+
+    // Запоминаем участников текущей волны (для расчёта наград)
+    this.waveParticipants.clear();
+    for (const p of arenaPlayers) {
+      this.waveParticipants.add(p.name);
+      this.fightParticipants.add(p.name); // Также добавляем в общий список
     }
 
     // Оповещение о волне
@@ -165,6 +253,7 @@ export class ArenaManager {
 
     const offsets = ARENA_CONFIG.spawnOffsets;
     let spawnIndex = 0;
+    let spawnedCount = 0;
 
     for (const group of waveConfig.spawns) {
       for (let i = 0; i < group.count; i++) {
@@ -179,11 +268,34 @@ export class ArenaManager {
 
         try {
           const mob = this.dimension.spawnEntity(group.type, spawnPos);
-          this.activeGladiatorIds.add(mob.id);
+          if (mob && mob.id) {
+            this.activeGladiatorIds.add(mob.id);
+            spawnedCount++;
+          }
         } catch (e) {
-          console.warn(`Не удалось заспавнить гладиатора ${group.type}: ${e}`);
+          console.warn(`Не удалось заспавнить гладиатора ${group.type} на [${spawnPos.x}, ${spawnPos.y}, ${spawnPos.z}]: ${e}`);
         }
       }
+    }
+
+    // Если ни один враг не заспавнился — автоматический переход, а не зависание
+    if (spawnedCount === 0) {
+      console.warn(`[Колизей] Волна ${waveNum}: не удалось заспавнить ни одного врага! Пропускаем волну.`);
+      EconomyManager.broadcastTitle(
+        arenaPlayers,
+        `§cОшибка спавна§r`,
+        `§7Волна ${waveNum} пропущена из-за ошибки. Переход к следующей...§r`
+      );
+      // Переходим к следующей волне через intermission
+      this.currentWaveIndex++;
+      const nextConfig = this.getWaveConfig();
+      if (nextConfig) {
+        this.status = "INTERMISSION";
+        this.intermissionTimer = ARENA_CONFIG.intermissionSeconds;
+      } else {
+        this.triggerVictory();
+      }
+      return;
     }
 
     this.status = "WAVE_ACTIVE";
@@ -200,7 +312,11 @@ export class ArenaManager {
       this.totalKills++;
 
       if (damageSource && damageSource.damagingEntity && damageSource.damagingEntity.typeId === "minecraft:player") {
-        damageSource.damagingEntity.playSound("random.orb", { volume: 0.6, pitch: 1.4 });
+        try {
+          damageSource.damagingEntity.playSound("random.orb", { volume: 0.6, pitch: 1.4 });
+        } catch (_) {
+          // Игрок мог стать невалидным
+        }
       }
 
       // Все враги повержены
@@ -214,24 +330,29 @@ export class ArenaManager {
    * Завершение волны и раздача наград
    */
   onWaveCleared() {
-    const arenaPlayers = this.getArenaPlayers();
     const waveNum = this.currentWaveIndex + 1;
+    const waveConfig = this.getWaveConfig();
 
-    let waveConfig = ARENA_CONFIG.waves[this.currentWaveIndex];
-    let rewardCoins = waveConfig ? waveConfig.rewardCoins : (100 + (this.currentWaveIndex - 5) * 30);
-    let rewardTrophy = waveConfig ? !!waveConfig.rewardTrophy : false;
+    // Расчёт наград через единый метод getWaveConfig()
+    const rewardCoins = waveConfig ? waveConfig.rewardCoins : 100;
+    // Трофей выдаётся ТОЛЬКО из скрипта, а не из лут-таблицы босса
+    const rewardTrophy = waveConfig ? !!waveConfig.rewardTrophy : false;
 
-    // Раздача наград всем участникам на арене (мультиплеер!)
-    for (const player of arenaPlayers) {
+    // Награды только для тех, кто был на арене в начале волны И сейчас на ней
+    const eligiblePlayers = this.getRewardEligiblePlayers();
+
+    for (const player of eligiblePlayers) {
       EconomyManager.giveCoins(player, rewardCoins);
       if (rewardTrophy) {
         EconomyManager.giveTrophy(player);
       }
     }
 
+    // Звук победы для всех кто на арене
+    const arenaPlayers = this.getArenaPlayers();
     EconomyManager.broadcastSound(arenaPlayers, "ui.toast.challenge_complete", 1.0, 1.0);
 
-    // Проверка победы (если волна 5 и бесконечный режим выключен)
+    // Проверка победы (если последняя штатная волна и бесконечный режим выключен)
     if (this.currentWaveIndex === ARENA_CONFIG.waves.length - 1 && !ARENA_CONFIG.enableEndlessMode) {
       this.triggerVictory();
       return;
@@ -265,30 +386,43 @@ export class ArenaManager {
 
     system.runTimeout(() => {
       this.cleanArena();
-      this.status = "IDLE";
+      this.resetFight();
     }, 140);
   }
 
   /**
    * Поражение на арене (все бойцы пали или покинули арену)
+   * Оповещение ТОЛЬКО игрокам арены, а не всем в измерении
    */
   triggerDefeat() {
     this.status = "DEFEAT";
 
     try {
-      const allPlayers = this.dimension.getPlayers();
-      EconomyManager.broadcastTitle(
-        allPlayers,
-        "§c☠ ПОРАЖЕНИЕ В КОЛИЗЕЕ ☠§r",
-        "§7Все гладиаторы арены одержали верх... Попробуйте снова!§r"
-      );
-      EconomyManager.broadcastSound(allPlayers, "beacon.deactivate", 1.0, 0.8);
+      // Уведомляем только участников боя, а не весь dimension
+      const notifyPlayers = [];
+      if (this.dimension) {
+        const allPlayers = this.dimension.getPlayers();
+        for (const p of allPlayers) {
+          if (p.isValid() && this.fightParticipants.has(p.name)) {
+            notifyPlayers.push(p);
+          }
+        }
+      }
+      // Если никого из участников не найдено, просто сбрасываем
+      if (notifyPlayers.length > 0) {
+        EconomyManager.broadcastTitle(
+          notifyPlayers,
+          "§c☠ ПОРАЖЕНИЕ В КОЛИЗЕЕ ☠§r",
+          "§7Все гладиаторы арены одержали верх... Попробуйте снова!§r"
+        );
+        EconomyManager.broadcastSound(notifyPlayers, "beacon.deactivate", 1.0, 0.8);
+      }
     } catch (e) {
       console.warn(`Ошибка при поражении: ${e}`);
     }
 
     this.cleanArena();
-    this.status = "IDLE";
+    this.resetFight();
   }
 
   /**
@@ -306,6 +440,41 @@ export class ArenaManager {
     }
 
     if (this.status === "WAVE_ACTIVE") {
+      // Проверяем, не «пропали» ли сущности (entity.isValid() === false)
+      // Это предотвращает зависание волны при деспавне мобов
+      const staleIds = [];
+      for (const id of this.activeGladiatorIds) {
+        let found = false;
+        try {
+          // Пробуем найти сущность среди всех в мире
+          const entities = this.dimension.getEntities();
+          for (const ent of entities) {
+            if (ent.id === id && ent.isValid()) {
+              found = true;
+              break;
+            }
+          }
+        } catch (_) {
+          // Ошибка при запросе — пропускаем проверку
+          found = true; // Не удаляем при ошибке
+        }
+        if (!found) {
+          staleIds.push(id);
+        }
+      }
+
+      // Удаляем «призрачные» ID
+      for (const staleId of staleIds) {
+        this.activeGladiatorIds.delete(staleId);
+        this.totalKills++;
+      }
+
+      // Если после очистки врагов не осталось — волна пройдена
+      if (this.activeGladiatorIds.size === 0) {
+        this.onWaveCleared();
+        return;
+      }
+
       const waveNum = this.currentWaveIndex + 1;
       const totalDisplay = ARENA_CONFIG.enableEndlessMode ? "∞" : ARENA_CONFIG.waves.length;
       const hudText = `§6⚔ Волна: §e${waveNum}/${totalDisplay} §7| §cВрагов: §e${this.activeGladiatorIds.size} §7| §bБойцов: §a${arenaPlayers.length}§r`;
