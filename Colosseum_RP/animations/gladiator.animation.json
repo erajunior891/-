@@ -140,34 +140,79 @@
     },
     "animation.colosseum.gladiator.attack": {
       "loop": true,
+      "animation_length": 0.5,
       "bones": {
-        "waist": {
-          "rotation": [
-            0.0,
-            "-math.sin(variable.attack_time * 180.0) * 25.0",
-            0.0
-          ]
-        },
         "body": {
-          "rotation": [
-            "math.sin(variable.attack_time * 180.0) * 8.0",
-            0.0,
-            0.0
-          ]
+          "rotation": {
+            "0.0": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "0.15": [
+              0.0,
+              -15.0,
+              0.0
+            ],
+            "0.3": [
+              8.0,
+              20.0,
+              0.0
+            ],
+            "0.5": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
         },
         "rightArm": {
-          "rotation": [
-            "-70.0 + (math.sin(variable.attack_time * 180.0) * 95.0)",
-            "-15.0 - (math.sin(variable.attack_time * 180.0) * 20.0)",
-            "12.0 - (math.sin(variable.attack_time * 180.0) * 18.0)"
-          ]
+          "rotation": {
+            "0.0": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "0.15": [
+              -70.0,
+              -25.0,
+              15.0
+            ],
+            "0.3": [
+              25.0,
+              15.0,
+              -10.0
+            ],
+            "0.5": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
         },
         "leftArm": {
-          "rotation": [
-            "variable.is_holding_left ? -28.0 : (-15.0 - math.sin(variable.attack_time * 180.0) * 15.0)",
-            "variable.is_holding_left ? 15.0 : 0.0",
-            "variable.is_holding_left ? 6.0 : -10.0"
-          ]
+          "rotation": {
+            "0.0": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "0.15": [
+              -15.0,
+              0.0,
+              -10.0
+            ],
+            "0.3": [
+              -25.0,
+              10.0,
+              5.0
+            ],
+            "0.5": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
         }
       }
     },

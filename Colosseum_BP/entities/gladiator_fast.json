@@ -104,10 +104,13 @@
       "minecraft:attack": {
         "damage": 3
       },
-      "minecraft:behavior.melee_attack": {
+      "minecraft:behavior.delayed_attack": {
         "priority": 3,
-        "speed_multiplier": 1.2,
-        "track_target": true
+        "speed_multiplier": 1.35,
+        "track_target": true,
+        "attack_once": false,
+        "attack_duration": 0.4,
+        "hit_delay_pct": 0.5
       }
     }
   }

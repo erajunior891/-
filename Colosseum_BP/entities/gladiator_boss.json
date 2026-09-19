@@ -30,7 +30,7 @@
         "max": 160
       },
       "minecraft:hurt_on_condition": {
-        "damage_conditions": [
+        "triggers": [
           {
             "filters": {
               "test": "in_lava",
@@ -107,18 +107,21 @@
       "minecraft:attack": {
         "damage": 12
       },
-      "minecraft:behavior.melee_attack": {
-        "priority": 3,
-        "speed_multiplier": 1.2,
-        "track_target": true
-      },
       "minecraft:boss": {
         "hud_range": 48,
-        "name": "\u00a76\u0418\u043c\u043f\u0435\u0440\u0430\u0442\u043e\u0440 \u0410\u0440\u0435\u043d\u044b (\u0411\u043e\u0441\u0441)\u00a7r",
+        "name": "§6Император Арены (Босс)§r",
         "should_darken_sky": false
       },
       "minecraft:mark_variant": {
         "value": 0
+      },
+      "minecraft:behavior.delayed_attack": {
+        "priority": 3,
+        "speed_multiplier": 1.2,
+        "track_target": true,
+        "attack_once": false,
+        "attack_duration": 0.5,
+        "hit_delay_pct": 0.5
       }
     },
     "component_groups": {
@@ -127,7 +130,7 @@
           "value": 0
         },
         "minecraft:damage_sensor": {
-          "damage_conditions": [
+          "triggers": [
             {
               "cause": "entity_attack",
               "deals_damage": true,
@@ -155,7 +158,7 @@
           "value": 1
         },
         "minecraft:damage_sensor": {
-          "damage_conditions": [
+          "triggers": [
             {
               "cause": "entity_attack",
               "deals_damage": false,

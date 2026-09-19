@@ -20,8 +20,7 @@
         "pre_animation": [
           "variable.tcos0 = math.cos(query.modified_distance_moved * 38.17) * math.clamp(query.modified_move_speed * 42.0, 0.0, 42.0);",
           "variable.is_holding_right = query.is_item_name_any('slot.weapon.mainhand');",
-          "variable.is_holding_left = query.is_item_name_any('slot.weapon.offhand');",
-          "variable.attack_time = query.attack_time > 0.0 ? query.attack_time : (query.is_delayed_attacking ? (1.0 - (query.life_time % 0.5) / 0.5) : 0.0);"
+          "variable.is_holding_left = query.is_item_name_any('slot.weapon.offhand');"
         ],
         "animate": [
           "look_at_target",
