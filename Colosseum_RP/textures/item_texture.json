@@ -8,12 +8,6 @@
     "colosseum_start_fight": {
       "textures": "textures/items/start_fight"
     },
-    "colosseum_gladius": {
-      "textures": "textures/items/gladius"
-    },
-    "colosseum_shield": {
-      "textures": "textures/items/shield"
-    },
     "colosseum_trophy": {
       "textures": "textures/items/trophy"
     },

@@ -5,8 +5,8 @@
       "entries": [
         {
           "type": "item",
-          "name": "colosseum:coin",
-          "weight": 1,
+          "name": "minecraft:iron_nugget",
+          "weight": 3,
           "functions": [
             {
               "function": "set_count",
@@ -14,6 +14,17 @@
                 "min": 1,
                 "max": 3
               }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_sword",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
             }
           ]
         }
