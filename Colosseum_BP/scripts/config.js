@@ -69,19 +69,21 @@ export const ARENA_CONFIG = {
       spawns: [
         { type: "colosseum:gladiator_fast", count: 4 },
         { type: "colosseum:gladiator_normal", count: 3 },
-        { type: "colosseum:gladiator_archer", count: 2 }
+        { type: "colosseum:gladiator_archer", count: 2 },
+        { type: "colosseum:gladiator_medic", count: 1 }
       ],
-      rewardCoins: 50
+      rewardCoins: 55
     },
     {
       waveNumber: 4,
       title: "§4Волна IV: Элита Колизея§r",
       spawns: [
         { type: "colosseum:gladiator_champion", count: 2 },
-        { type: "colosseum:gladiator_archer", count: 4 },
-        { type: "colosseum:gladiator_heavy", count: 3 }
+        { type: "colosseum:gladiator_archer", count: 3 },
+        { type: "colosseum:gladiator_heavy", count: 3 },
+        { type: "colosseum:gladiator_medic", count: 1 }
       ],
-      rewardCoins: 80
+      rewardCoins: 85
     },
     {
       waveNumber: 5,
@@ -89,9 +91,10 @@ export const ARENA_CONFIG = {
       spawns: [
         { type: "colosseum:gladiator_boss", count: 1 },
         { type: "colosseum:gladiator_champion", count: 2 },
-        { type: "colosseum:gladiator_fast", count: 4 }
+        { type: "colosseum:gladiator_fast", count: 3 },
+        { type: "colosseum:gladiator_medic", count: 1 }
       ],
-      rewardCoins: 150,
+      rewardCoins: 160,
       rewardTrophy: true
     }
   ],

@@ -28,6 +28,21 @@ world.afterEvents.entityDie.subscribe((event) => {
   }
 });
 
+// Обработка появления мобов (включая спавн яйцами в креативе)
+world.afterEvents.entitySpawn.subscribe((event) => {
+  const entity = event.entity;
+  if (entity && entity.isValid() && entity.typeId.startsWith("colosseum:gladiator_")) {
+    arena.aiController.registerGladiator(entity);
+  }
+});
+
+// Такт тактического ИИ гладиаторов (раз в 6 тиков = 0.3 секунды)
+let aiTickCounter = 0;
+system.runInterval(() => {
+  aiTickCounter += 6;
+  arena.aiController.tick(aiTickCounter);
+}, 6);
+
 // Периодический цикл для Actionbar HUD и таймеров волн (раз в 20 тиков = 1 секунда)
 system.runInterval(() => {
   arena.tick();

@@ -27,6 +27,8 @@ entity.colosseum:gladiator_champion=Чемпион Колизея
 entity.colosseum:gladiator_champion.name=Чемпион Колизея
 entity.colosseum:gladiator_boss=Император Арены (Босс)
 entity.colosseum:gladiator_boss.name=Император Арены (Босс)
+entity.colosseum:gladiator_medic=Гладиатор-медик
+entity.colosseum:gladiator_medic.name=Гладиатор-медик
 
 item.spawn_egg.entity.colosseum:gladiator_normal.name=Яйцо призыва гладиатора
 item.spawn_egg.entity.colosseum:gladiator_heavy.name=Яйцо призыва тяжёлого гладиатора
@@ -34,3 +36,5 @@ item.spawn_egg.entity.colosseum:gladiator_fast.name=Яйцо призыва бы
 item.spawn_egg.entity.colosseum:gladiator_archer.name=Яйцо призыва гладиатора-лучника
 item.spawn_egg.entity.colosseum:gladiator_champion.name=Яйцо призыва чемпиона Колизея
 item.spawn_egg.entity.colosseum:gladiator_boss.name=Яйцо призыва императора арены
+item.spawn_egg.entity.colosseum:gladiator_medic.name=Яйцо призыва гладиатора-медика
+

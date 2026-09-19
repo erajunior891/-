@@ -27,6 +27,8 @@ entity.colosseum:gladiator_champion=Colosseum Champion
 entity.colosseum:gladiator_champion.name=Colosseum Champion
 entity.colosseum:gladiator_boss=Arena Emperor (Boss)
 entity.colosseum:gladiator_boss.name=Arena Emperor (Boss)
+entity.colosseum:gladiator_medic=Gladiator Medic
+entity.colosseum:gladiator_medic.name=Gladiator Medic
 
 item.spawn_egg.entity.colosseum:gladiator_normal.name=Spawn Gladiator
 item.spawn_egg.entity.colosseum:gladiator_heavy.name=Spawn Heavy Gladiator
@@ -34,3 +36,5 @@ item.spawn_egg.entity.colosseum:gladiator_fast.name=Spawn Fast Gladiator
 item.spawn_egg.entity.colosseum:gladiator_archer.name=Spawn Gladiator Archer
 item.spawn_egg.entity.colosseum:gladiator_champion.name=Spawn Colosseum Champion
 item.spawn_egg.entity.colosseum:gladiator_boss.name=Spawn Arena Emperor
+item.spawn_egg.entity.colosseum:gladiator_medic.name=Spawn Gladiator Medic
+

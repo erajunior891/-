@@ -104,6 +104,11 @@
       "minecraft:attack": {
         "damage": 3
       },
+      "minecraft:behavior.leap_at_target": {
+        "priority": 2,
+        "yd": 0.35,
+        "must_be_on_ground": true
+      },
       "minecraft:behavior.delayed_attack": {
         "priority": 3,
         "speed_multiplier": 1.35,

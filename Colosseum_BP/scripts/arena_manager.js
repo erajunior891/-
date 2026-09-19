@@ -4,6 +4,7 @@
 import { world, system } from "@minecraft/server";
 import { ARENA_CONFIG } from "./config.js";
 import { EconomyManager } from "./economy.js";
+import { GladiatorAIController } from "./gladiator_ai_controller.js";
 
 export class ArenaManager {
   constructor() {
@@ -12,6 +13,7 @@ export class ArenaManager {
     this.center = { ...ARENA_CONFIG.fixedCenter };
     this.dimension = null;
     this.activeGladiatorIds = new Set();
+    this.aiController = new GladiatorAIController();
     this.intermissionTimer = 0;
     this.totalKills = 0;
     /** @type {Set<string>} Имена игроков, участвующих в бою с момента старта */
@@ -120,6 +122,7 @@ export class ArenaManager {
     }
 
     this.activeGladiatorIds.clear();
+    this.aiController.clearAll();
   }
 
   /**
@@ -127,6 +130,7 @@ export class ArenaManager {
    */
   resetFight() {
     this.activeGladiatorIds.clear();
+    this.aiController.clearAll();
     this.fightParticipants.clear();
     this.waveParticipants.clear();
     this.currentWaveIndex = 0;
@@ -287,6 +291,7 @@ export class ArenaManager {
           const mob = this.dimension.spawnEntity(group.type, spawnPos);
           if (mob && mob.id) {
             this.activeGladiatorIds.add(mob.id);
+            this.aiController.registerGladiator(mob);
             spawnedCount++;
           }
         } catch (e) {

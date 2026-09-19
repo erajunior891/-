@@ -46,6 +46,12 @@
     },
     "colosseum:gladiator_boss_spawn_egg": {
       "textures": "textures/items/egg_gladiator_boss"
+    },
+    "egg_gladiator_medic": {
+      "textures": "textures/items/egg_gladiator_medic"
+    },
+    "colosseum:gladiator_medic_spawn_egg": {
+      "textures": "textures/items/egg_gladiator_medic"
     }
   }
 }
