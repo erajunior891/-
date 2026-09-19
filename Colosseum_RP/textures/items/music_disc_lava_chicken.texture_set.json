@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "music_disc_lava_chicken",
+    "metalness_emissive_roughness": "music_disc_lava_chicken_mer",
+    "normal": "music_disc_lava_chicken_normal"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "egg_creeper",
+    "metalness_emissive_roughness": "egg_creeper_mer",
+    "normal": "egg_creeper_normal"
+  }
+}

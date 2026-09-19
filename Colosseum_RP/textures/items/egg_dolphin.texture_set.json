@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "egg_dolphin",
+    "metalness_emissive_roughness": "egg_dolphin_mer",
+    "normal": "egg_dolphin_normal"
+  }
+}

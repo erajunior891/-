@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "blue_egg",
+    "metalness_emissive_roughness": "blue_egg_mer",
+    "normal": "blue_egg_normal"
+  }
+}

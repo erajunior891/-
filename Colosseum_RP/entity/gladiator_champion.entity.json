@@ -52,7 +52,7 @@
       ],
       "enable_attachables": true,
       "spawn_egg": {
-        "texture": "colosseum:gladiator_champion_spawn_egg",
+        "texture": "egg_gladiator_champion",
         "texture_index": 0
       }
     }

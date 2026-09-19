@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "pale_oak_chest_boat",
+    "metalness_emissive_roughness": "pale_oak_chest_boat_mer",
+    "normal": "pale_oak_chest_boat_normal"
+  }
+}

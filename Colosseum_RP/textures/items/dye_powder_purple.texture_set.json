@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "dye_powder_purple",
+    "metalness_emissive_roughness": "dye_powder_purple_mer",
+    "normal": "dye_powder_purple_normal"
+  }
+}

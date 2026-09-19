@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "deepslate_lapis_ore_4",
+    "metalness_emissive_roughness": "deepslate_lapis_ore_4_mer",
+    "heightmap": "deepslate_lapis_ore_4_heightmap"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "torchflower_seeds",
+    "metalness_emissive_roughness": "torchflower_seeds_mer",
+    "normal": "torchflower_seeds_normal"
+  }
+}

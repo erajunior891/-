@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "armadillo_scute",
+    "metalness_emissive_roughness": "armadillo_scute_mer",
+    "normal": "armadillo_scute_normal"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "netherite_nautilus_armor",
+    "metalness_emissive_roughness": "netherite_nautilus_armor_mer",
+    "normal": "netherite_nautilus_armor_normal"
+  }
+}

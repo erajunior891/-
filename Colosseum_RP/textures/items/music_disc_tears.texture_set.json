@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "music_disc_tears",
+    "metalness_emissive_roughness": "music_disc_tears_mer",
+    "normal": "music_disc_tears_normal"
+  }
+}

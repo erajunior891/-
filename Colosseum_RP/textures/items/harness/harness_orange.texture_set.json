@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "harness_orange",
+    "metalness_emissive_roughness": "harness_orange_mer",
+    "normal": "harness_orange_normal"
+  }
+}

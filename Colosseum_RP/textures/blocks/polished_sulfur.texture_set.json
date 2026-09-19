@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "polished_sulfur",
+    "metalness_emissive_roughness": "polished_sulfur_mer",
+    "heightmap": "polished_sulfur_heightmap"
+  }
+}

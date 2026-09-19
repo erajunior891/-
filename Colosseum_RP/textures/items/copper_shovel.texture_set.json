@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "copper_shovel",
+    "metalness_emissive_roughness": "copper_shovel_mer",
+    "normal": "copper_shovel_normal"
+  }
+}

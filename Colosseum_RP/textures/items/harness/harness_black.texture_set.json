@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "harness_black",
+    "metalness_emissive_roughness": "harness_black_mer",
+    "normal": "harness_black_normal"
+  }
+}

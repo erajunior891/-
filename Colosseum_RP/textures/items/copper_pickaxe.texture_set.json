@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "copper_pickaxe",
+    "metalness_emissive_roughness": "copper_pickaxe_mer",
+    "normal": "copper_pickaxe_normal"
+  }
+}

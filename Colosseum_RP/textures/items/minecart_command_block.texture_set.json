@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "minecart_command_block",
+    "metalness_emissive_roughness": "minecart_command_block_mer",
+    "normal": "minecart_command_block_normal"
+  }
+}

@@ -52,7 +52,7 @@
       ],
       "enable_attachables": true,
       "spawn_egg": {
-        "texture": "colosseum:gladiator_heavy_spawn_egg",
+        "texture": "egg_gladiator_heavy",
         "texture_index": 0
       }
     }

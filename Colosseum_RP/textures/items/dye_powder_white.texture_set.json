@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "dye_powder_white",
+    "metalness_emissive_roughness": "dye_powder_white_mer",
+    "normal": "dye_powder_white_normal"
+  }
+}

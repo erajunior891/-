@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "egg_cod",
+    "metalness_emissive_roughness": "egg_cod_mer",
+    "normal": "egg_cod_normal"
+  }
+}

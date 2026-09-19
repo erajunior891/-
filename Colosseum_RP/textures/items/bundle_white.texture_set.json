@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "bundle_white",
+    "metalness_emissive_roughness": "bundle_white_mer",
+    "normal": "bundle_white_normal"
+  }
+}

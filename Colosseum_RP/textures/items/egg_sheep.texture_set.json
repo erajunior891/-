@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "egg_sheep",
+    "metalness_emissive_roughness": "egg_sheep_mer",
+    "normal": "egg_sheep_normal"
+  }
+}

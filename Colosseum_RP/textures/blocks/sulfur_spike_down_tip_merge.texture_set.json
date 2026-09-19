@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "sulfur_spike_down_tip_merge",
+    "metalness_emissive_roughness": "sulfur_spike_down_tip_merge_mer",
+    "heightmap": "sulfur_spike_down_tip_merge_heightmap"
+  }
+}

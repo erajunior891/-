@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "copper_horse_armor",
+    "metalness_emissive_roughness": "copper_horse_armor_mer",
+    "normal": "copper_horse_armor_normal"
+  }
+}

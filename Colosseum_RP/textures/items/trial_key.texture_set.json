@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "trial_key",
+    "metalness_emissive_roughness": "trial_key_mer",
+    "normal": "trial_key_normal"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "potion_bottle_splash_healthBoost",
+    "metalness_emissive_roughness": "potion_bottle_splash_healthBoost_mer",
+    "normal": "potion_bottle_splash_healthBoost_normal"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "acacia_shelf",
+    "metalness_emissive_roughness": "acacia_shelf_mer",
+    "heightmap": "acacia_shelf_heightmap"
+  }
+}

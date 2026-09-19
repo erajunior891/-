@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "deepslate_quartz_ore_9",
+    "metalness_emissive_roughness": "deepslate_quartz_ore_9_mer",
+    "heightmap": "deepslate_quartz_ore_9_heightmap"
+  }
+}

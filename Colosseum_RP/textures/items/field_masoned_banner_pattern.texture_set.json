@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "field_masoned_banner_pattern",
+    "metalness_emissive_roughness": "field_masoned_banner_pattern_mer",
+    "normal": "field_masoned_banner_pattern_normal"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "weathered_copper_chain",
+    "metalness_emissive_roughness": "weathered_copper_chain_mer",
+    "normal": "weathered_copper_chain_normal"
+  }
+}

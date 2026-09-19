@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "chiseled_sulfur",
+    "metalness_emissive_roughness": "chiseled_sulfur_mer",
+    "heightmap": "chiseled_sulfur_heightmap"
+  }
+}

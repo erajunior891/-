@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "egg_phantom",
+    "metalness_emissive_roughness": "egg_phantom_mer",
+    "normal": "egg_phantom_normal"
+  }
+}

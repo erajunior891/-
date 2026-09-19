@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "bundle_green",
+    "metalness_emissive_roughness": "bundle_green_mer",
+    "normal": "bundle_green_normal"
+  }
+}

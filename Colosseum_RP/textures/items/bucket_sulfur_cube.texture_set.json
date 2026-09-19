@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "bucket_sulfur_cube",
+    "metalness_emissive_roughness": "bucket_sulfur_cube_mer",
+    "normal": "bucket_sulfur_cube_normal"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "spawn_egg_wolf",
+    "metalness_emissive_roughness": "spawn_egg_wolf_mer",
+    "normal": "spawn_egg_wolf_normal"
+  }
+}

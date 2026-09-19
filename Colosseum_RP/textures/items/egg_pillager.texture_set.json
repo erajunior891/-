@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "egg_pillager",
+    "metalness_emissive_roughness": "egg_pillager_mer",
+    "normal": "egg_pillager_normal"
+  }
+}

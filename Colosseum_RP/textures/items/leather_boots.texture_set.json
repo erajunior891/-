@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "leather_boots",
+    "metalness_emissive_roughness": "leather_boots_mer",
+    "normal": "leather_boots_normal"
+  }
+}

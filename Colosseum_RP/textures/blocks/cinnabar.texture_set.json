@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "cinnabar",
+    "metalness_emissive_roughness": "cinnabar_mer",
+    "heightmap": "cinnabar_heightmap"
+  }
+}
