@@ -1,0 +1,63 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.hoglin.hurt": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": [-5, 0, 0]
+				},
+				"head": {
+					"rotation": [-2.5, 0, 0]
+				}
+			}
+		},
+		"animation.zombie.hurt": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": [5, 0, 0]
+				},
+				"head": {
+					"rotation": [10, 0, 0]
+				},
+				"rightArm": {
+					"rotation": [12.31594, -2.15393, 9.76758]
+				},
+				"leftArm": {
+					"rotation": [17.43745, 1.50179, -4.76968]
+				}
+			}
+		},
+		"animation.evoker.hurt": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"rotation": [15, 0, 0]
+				},
+				"arms": {
+					"rotation": [-17.5, 0, 0]
+				},
+				"rightArm": {
+					"rotation": [-17.5, 0, 0]
+				},
+				"leftArm": {
+					"rotation": [-15, 0, 0]
+				}
+			}
+		},
+		"animation.creeper.hurt": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": [-7.5, 0, 0],
+					"position": [0, 0, -1]
+				},
+				"head": {
+					"rotation": [5, 0, 0],
+					"position": [0, 0, 1]
+				}
+			}
+		}
+	}
+}
