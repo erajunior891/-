@@ -71,6 +71,30 @@
           "blend_transition": 0.1
         }
       }
+    },
+    "controller.animation.colosseum.gladiator.shield": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "blocking": "query.mark_variant == 1"
+            }
+          ],
+          "blend_transition": 0.12
+        },
+        "blocking": {
+          "animations": [
+            "gladiator_block"
+          ],
+          "transitions": [
+            {
+              "default": "query.mark_variant == 0"
+            }
+          ],
+          "blend_transition": 0.12
+        }
+      }
     }
   }
 }

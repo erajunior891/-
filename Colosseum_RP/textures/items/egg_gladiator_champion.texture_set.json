@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "egg_gladiator_champion",
+    "metalness_emissive_roughness": "egg_gladiator_champion_mer",
+    "normal": "egg_gladiator_champion_normal"
+  }
+}

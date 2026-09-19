@@ -108,6 +108,93 @@
         "priority": 3,
         "speed_multiplier": 1.2,
         "track_target": true
+      },
+      "minecraft:mark_variant": {
+        "value": 0
+      }
+    },
+    "component_groups": {
+      "colosseum:combat": {
+        "minecraft:mark_variant": {
+          "value": 0
+        },
+        "minecraft:timer": {
+          "time": [
+            3.0,
+            5.0
+          ],
+          "looping": true,
+          "time_down_event": {
+            "event": "colosseum:start_blocking"
+          }
+        }
+      },
+      "colosseum:blocking": {
+        "minecraft:mark_variant": {
+          "value": 1
+        },
+        "minecraft:damage_sensor": {
+          "damage_conditions": [
+            {
+              "cause": "entity_attack",
+              "deals_damage": false,
+              "damage_modifier": 0.0,
+              "on_damage_sound_event": "item.shield.block"
+            },
+            {
+              "cause": "projectile",
+              "deals_damage": false,
+              "damage_modifier": 0.0,
+              "on_damage_sound_event": "item.shield.block"
+            }
+          ]
+        },
+        "minecraft:movement": {
+          "value": 0.12
+        },
+        "minecraft:timer": {
+          "time": [
+            1.5,
+            2.5
+          ],
+          "looping": false,
+          "time_down_event": {
+            "event": "colosseum:stop_blocking"
+          }
+        }
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "colosseum:combat"
+          ]
+        }
+      },
+      "colosseum:start_blocking": {
+        "remove": {
+          "component_groups": [
+            "colosseum:combat"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "colosseum:blocking"
+          ]
+        }
+      },
+      "colosseum:stop_blocking": {
+        "remove": {
+          "component_groups": [
+            "colosseum:blocking"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "colosseum:combat"
+          ]
+        }
       }
     }
   }

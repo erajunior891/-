@@ -25,7 +25,8 @@
         "animate": [
           "look_at_target",
           "ctrl_movement",
-          "ctrl_attack"
+          "ctrl_attack",
+          "ctrl_shield"
         ]
       },
       "animations": {
@@ -36,7 +37,9 @@
         "move.arms": "animation.colosseum.gladiator.move.arms",
         "move.legs": "animation.colosseum.gladiator.move.legs",
         "sprint": "animation.colosseum.gladiator.sprint",
-        "gladiator_attack": "animation.colosseum.gladiator.attack"
+        "gladiator_attack": "animation.colosseum.gladiator.attack",
+        "ctrl_shield": "controller.animation.colosseum.gladiator.shield",
+        "gladiator_block": "animation.colosseum.gladiator.block"
       },
       "render_controllers": [
         "controller.render.default"

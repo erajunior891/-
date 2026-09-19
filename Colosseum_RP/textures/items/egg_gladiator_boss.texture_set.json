@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "egg_gladiator_boss",
+    "metalness_emissive_roughness": "egg_gladiator_boss_mer",
+    "normal": "egg_gladiator_boss_normal"
+  }
+}
