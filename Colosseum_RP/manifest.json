@@ -4,15 +4,27 @@
     "name": "§cКолизей RP§r §7[1.26+]§r",
     "description": "Ресурспак аддона Колизей: скины гладиаторов, оружие, монеты и трофеи арены.",
     "uuid": "db66ae90-dc2f-4596-b158-dd331d3ad158",
-    "version": [1, 0, 0],
-    "min_engine_version": [1, 21, 0]
+    "version": [
+      1,
+      1,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      0
+    ]
   },
   "modules": [
     {
       "description": "Colosseum Resource Pack Module",
       "type": "resources",
       "uuid": "4fa30fcd-7f59-4dca-97e7-b766568d0df8",
-      "version": [1, 0, 0]
+      "version": [
+        1,
+        1,
+        0
+      ]
     }
   ]
 }

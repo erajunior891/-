@@ -1,5 +1,5 @@
 {
-  "format_version": "1.10.0",
+  "format_version": "1.12.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "colosseum:gladiator_champion",
@@ -52,7 +52,8 @@
       ],
       "enable_attachables": true,
       "spawn_egg": {
-        "texture": "egg_gladiator_champion"
+        "texture": "colosseum:gladiator_champion_spawn_egg",
+        "texture_index": 0
       }
     }
   }

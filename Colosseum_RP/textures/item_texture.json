@@ -34,6 +34,24 @@
     },
     "egg_gladiator_boss": {
       "textures": "textures/items/egg_gladiator_boss"
+    },
+    "colosseum:gladiator_normal_spawn_egg": {
+      "textures": "textures/items/egg_gladiator_normal"
+    },
+    "colosseum:gladiator_heavy_spawn_egg": {
+      "textures": "textures/items/egg_gladiator_heavy"
+    },
+    "colosseum:gladiator_fast_spawn_egg": {
+      "textures": "textures/items/egg_gladiator_fast"
+    },
+    "colosseum:gladiator_archer_spawn_egg": {
+      "textures": "textures/items/egg_gladiator_archer"
+    },
+    "colosseum:gladiator_champion_spawn_egg": {
+      "textures": "textures/items/egg_gladiator_champion"
+    },
+    "colosseum:gladiator_boss_spawn_egg": {
+      "textures": "textures/items/egg_gladiator_boss"
     }
   }
 }
