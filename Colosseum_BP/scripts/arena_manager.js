@@ -83,18 +83,35 @@ export class ArenaManager {
             ent.remove();
             continue;
           }
-          // Удаляем любых враждебных мобов по семейству
+          // Удаляем любых враждебных мобов (семейство monster или список hostile)
           try {
-            const families = ent.getComponent("type_family");
-            if (families) {
-              // Проверяем семейство "monster" — все враждебные мобы
-              if (ent.hasTag && typeof ent.matches === "function") {
-                // Bedrock 1.26+ поддерживает entity.matches()
-                // Но для безопасности просто проверим typeId на известных враждебных
+            if (typeof ent.matches === "function" && ent.matches({ families: ["monster"] })) {
+              ent.remove();
+              continue;
+            }
+            const familyComp = ent.getComponent("minecraft:type_family") || ent.getComponent("type_family");
+            if (familyComp && typeof familyComp.getTypeFamilies === "function") {
+              if (familyComp.getTypeFamilies().includes("monster")) {
+                ent.remove();
+                continue;
               }
             }
+            // Резервный список ванильных враждебных сущностей
+            const HOSTILE_MOBS = [
+              "minecraft:zombie", "minecraft:skeleton", "minecraft:creeper", "minecraft:spider",
+              "minecraft:cave_spider", "minecraft:witch", "minecraft:enderman", "minecraft:slime",
+              "minecraft:magma_cube", "minecraft:phantom", "minecraft:drowned", "minecraft:husk",
+              "minecraft:stray", "minecraft:pillager", "minecraft:vindicator", "minecraft:ravager",
+              "minecraft:evoker", "minecraft:vex", "minecraft:warden", "minecraft:zombified_piglin",
+              "minecraft:hoglin", "minecraft:zoglin", "minecraft:piglin_brute", "minecraft:breeze",
+              "minecraft:bogged"
+            ];
+            if (HOSTILE_MOBS.includes(ent.typeId)) {
+              ent.remove();
+              continue;
+            }
           } catch (_) {
-            // Компонент может быть недоступен, пропускаем
+            // Игнорируем ошибки для отдельных сущностей
           }
         }
       }

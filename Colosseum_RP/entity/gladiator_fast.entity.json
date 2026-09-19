@@ -49,8 +49,7 @@
       ],
       "enable_attachables": true,
       "spawn_egg": {
-        "base_color": "#287896",
-        "overlay_color": "#F0D76E"
+        "texture": "egg_gladiator_fast"
       }
     }
   }
