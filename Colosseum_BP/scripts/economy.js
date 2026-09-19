@@ -1,7 +1,7 @@
 /**
  * Экономика и вспомогательные функции наград для игроков
  */
-import { ItemStack, world } from "@minecraft/server";
+import { ItemStack } from "@minecraft/server";
 
 export class EconomyManager {
   /**
@@ -27,8 +27,12 @@ export class EconomyManager {
           remaining -= batch;
         }
       } else {
-        const item = new ItemStack("colosseum:coin", amount);
-        player.dimension.spawnItem(item, player.location);
+        let remaining = amount;
+        while (remaining > 0) {
+          const batch = Math.min(remaining, 64);
+          player.dimension.spawnItem(new ItemStack("colosseum:coin", batch), player.location);
+          remaining -= batch;
+        }
       }
 
       player.sendMessage(`§6+${amount} Сестерциев!§r (Валюта арены получена)`);
