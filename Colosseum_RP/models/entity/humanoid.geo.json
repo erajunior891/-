@@ -238,15 +238,6 @@
           ]
         },
         {
-          "name": "shield",
-          "parent": "leftArm",
-          "pivot": [
-            6,
-            15,
-            0
-          ]
-        },
-        {
           "name": "rightLeg",
           "parent": "body",
           "pivot": [
