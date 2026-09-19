@@ -44,7 +44,7 @@
         ]
       },
       "minecraft:movement": {
-        "value": 0.29
+        "value": 0.28
       },
       "minecraft:navigation.walk": {
         "can_path_over_water": true,
@@ -126,15 +126,28 @@
         "minecraft:mark_variant": {
           "value": 0
         },
-        "minecraft:timer": {
-          "time": [
-            3.0,
-            5.0
-          ],
-          "looping": true,
-          "time_down_event": {
-            "event": "colosseum:start_blocking"
-          }
+        "minecraft:damage_sensor": {
+          "damage_conditions": [
+            {
+              "cause": "entity_attack",
+              "deals_damage": true,
+              "on_damage": {
+                "event": "colosseum:start_blocking",
+                "filters": {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "player"
+                }
+              }
+            },
+            {
+              "cause": "projectile",
+              "deals_damage": true,
+              "on_damage": {
+                "event": "colosseum:start_blocking"
+              }
+            }
+          ]
         }
       },
       "colosseum:blocking": {
@@ -158,12 +171,12 @@
           ]
         },
         "minecraft:movement": {
-          "value": 0.12
+          "value": 0.26
         },
         "minecraft:timer": {
           "time": [
-            1.5,
-            2.5
+            1.0,
+            1.4
           ],
           "looping": false,
           "time_down_event": {

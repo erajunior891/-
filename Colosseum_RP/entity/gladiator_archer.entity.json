@@ -20,13 +20,15 @@
         "pre_animation": [
           "variable.tcos0 = math.cos(query.modified_distance_moved * 38.17) * math.clamp(query.modified_move_speed * 42.0, 0.0, 42.0);",
           "variable.is_holding_right = query.is_item_name_any('slot.weapon.mainhand');",
-          "variable.is_holding_left = query.is_item_name_any('slot.weapon.offhand');"
+          "variable.is_holding_left = query.is_item_name_any('slot.weapon.offhand');",
+          "variable.attack_time = query.attack_time > 0.0 ? query.attack_time : (query.is_delayed_attacking ? (1.0 - (query.life_time % 0.5) / 0.5) : 0.0);"
         ],
         "animate": [
           "look_at_target",
           "ctrl_movement",
           "ctrl_attack",
-          "ctrl_shield"
+          "ctrl_shield",
+          "ctrl_bow"
         ]
       },
       "animations": {
@@ -39,7 +41,9 @@
         "sprint": "animation.colosseum.gladiator.sprint",
         "gladiator_attack": "animation.colosseum.gladiator.attack",
         "ctrl_shield": "controller.animation.colosseum.gladiator.shield",
-        "gladiator_block": "animation.colosseum.gladiator.block"
+        "gladiator_block": "animation.colosseum.gladiator.block",
+        "ctrl_bow": "controller.animation.colosseum.gladiator.bow",
+        "gladiator_bow_aim": "animation.colosseum.gladiator.bow_aim"
       },
       "render_controllers": [
         "controller.render.default"
