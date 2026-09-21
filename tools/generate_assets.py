@@ -99,6 +99,30 @@ def create_skin_grid(theme):
         accent = (245, 200, 70, 255)
         eye_color = (90, 190, 230, 255)
         hair_color = (40, 30, 25, 255)
+    elif theme == "medic":
+        tunic_main = (230, 240, 235, 255)
+        tunic_dark = (180, 200, 190, 255)
+        armor_main = (60, 140, 95, 255)
+        armor_highlight = (100, 195, 140, 255)
+        accent = (220, 45, 45, 255)
+        eye_color = (70, 160, 120, 255)
+        hair_color = (50, 40, 35, 255)
+    elif theme == "berserk":
+        tunic_main = (145, 25, 25, 255)
+        tunic_dark = (95, 15, 15, 255)
+        armor_main = (85, 40, 30, 255)
+        armor_highlight = (230, 70, 30, 255)
+        accent = (245, 130, 30, 255)
+        eye_color = (240, 50, 20, 255)
+        hair_color = (130, 35, 20, 255)
+    elif theme == "retiarius":
+        tunic_main = (195, 165, 115, 255)
+        tunic_dark = (150, 120, 75, 255)
+        armor_main = (75, 115, 130, 255)
+        armor_highlight = (120, 175, 190, 255)
+        accent = (215, 190, 80, 255)
+        eye_color = (60, 140, 170, 255)
+        hair_color = (80, 55, 30, 255)
     else:  # boss
         tunic_main = (150, 15, 25, 255)
         tunic_dark = (90, 5, 15, 255)
@@ -191,7 +215,7 @@ def create_skin_grid(theme):
 
 def generate_skins(out_dir):
     os.makedirs(out_dir, exist_ok=True)
-    themes = ["normal", "heavy", "fast", "archer", "champion", "boss"]
+    themes = ["normal", "heavy", "fast", "archer", "champion", "boss", "medic", "berserk", "retiarius"]
     for theme in themes:
         grid = create_skin_grid(theme)
         def get_pix(x, y):
@@ -675,6 +699,27 @@ def generate_128_spawn_eggs(out_dir):
             'base_dark': (12, 12, 16, 255),
             'crest_gold': (255, 35, 35, 255),
             'crest_type': 'boss'
+        },
+        'medic': {
+            'base': (220, 235, 225, 255),
+            'base_light': (250, 255, 250, 255),
+            'base_dark': (140, 185, 160, 255),
+            'crest_gold': (220, 35, 35, 255),
+            'crest_type': 'cross'
+        },
+        'berserk': {
+            'base': (150, 20, 20, 255),
+            'base_light': (220, 50, 40, 255),
+            'base_dark': (80, 10, 10, 255),
+            'crest_gold': (255, 150, 30, 255),
+            'crest_type': 'axes'
+        },
+        'retiarius': {
+            'base': (60, 120, 140, 255),
+            'base_light': (100, 175, 195, 255),
+            'base_dark': (35, 75, 90, 255),
+            'crest_gold': (235, 195, 60, 255),
+            'crest_type': 'trident'
         }
     }
 
@@ -768,6 +813,27 @@ def generate_128_spawn_eggs(out_dir):
                 # Glowing volcanic core
                 if math.sqrt(dx*dx + dy*dy) <= 14.0:
                     return (255, 50, 30, 255) if math.sqrt(dx*dx + dy*dy) <= 8.0 else (180, 20, 20, 255)
+
+            # 7. Medic Cross Crest
+            elif c_type == 'cross':
+                if (abs(dx) <= 4.0 and abs(dy) <= 16.0) or (abs(dy) <= 4.0 and abs(dx) <= 16.0):
+                    return crest_col
+
+            # 8. Berserk Crossed Axes Crest
+            elif c_type == 'axes':
+                if abs(abs(dx) - abs(dy)) <= 2.5 and math.sqrt(dx*dx + dy*dy) <= 22.0:
+                    return (235, 235, 235, 255)
+                if (dx - 12)**2 + (dy + 12)**2 <= 36.0 or (dx + 12)**2 + (dy + 12)**2 <= 36.0:
+                    return crest_col
+
+            # 9. Retiarius Trident Crest
+            elif c_type == 'trident':
+                if abs(dx) <= 2.5 and -25 <= dy <= 22:
+                    return crest_col
+                if -24 <= dy <= -4 and abs(abs(dx) - 9.0) <= 2.0:
+                    return crest_col
+                if abs(dx) <= 10.0 and -6 <= dy <= -2:
+                    return crest_col
 
             # Specular glint on egg shell (top-left)
             if (dx + 16.0)**2 + (dy + 22.0)**2 <= 36.0:

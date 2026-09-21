@@ -397,7 +397,7 @@ def check_loot_tables(known_items, known_entities):
         "minecraft:gold_ingot", "minecraft:iron_ingot", "minecraft:diamond", "minecraft:emerald",
         "minecraft:gold_nugget", "minecraft:iron_nugget", "minecraft:netherite_scrap", "minecraft:netherite_ingot",
         "minecraft:potion", "minecraft:splash_potion",
-        "minecraft:totem_of_undying",
+        "minecraft:totem_of_undying", "minecraft:prismarine_shard",
     }
     all_items = known_items | vanilla_items
 

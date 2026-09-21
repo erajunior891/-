@@ -233,9 +233,12 @@ export class ArenaManager {
         title: `§5Бесконечная волна ${waveNum}§r`,
         spawns: [
           { type: "colosseum:gladiator_champion", count: 2 + Math.floor(extra / 2) },
-          { type: "colosseum:gladiator_heavy", count: 3 + extra },
-          { type: "colosseum:gladiator_archer", count: 3 + extra },
-          { type: "colosseum:gladiator_fast", count: 4 + extra }
+          { type: "colosseum:gladiator_heavy", count: 2 + Math.floor(extra / 2) },
+          { type: "colosseum:gladiator_berserk", count: 2 + Math.floor(extra / 2) },
+          { type: "colosseum:gladiator_retiarius", count: 1 + Math.floor(extra / 3) },
+          { type: "colosseum:gladiator_archer", count: 2 + extra },
+          { type: "colosseum:gladiator_fast", count: 3 + extra },
+          { type: "colosseum:gladiator_medic", count: 1 + Math.floor(extra / 3) }
         ],
         rewardCoins: ARENA_CONFIG.waves.length > 0
           ? ARENA_CONFIG.waves[ARENA_CONFIG.waves.length - 1].rewardCoins + extra * 30

@@ -1,0 +1,50 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "colosseum:gladiator_retiarius",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/gladiator_retiarius"
+      },
+      "geometry": {
+        "default": "geometry.humanoid.custom"
+      },
+      "spawn_egg": {
+        "texture": "egg_gladiator_retiarius",
+        "texture_index": 0
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos0 = math.cos(query.modified_distance_moved * 38.17) * math.clamp(query.modified_move_speed * 42.0, 0.0, 42.0);",
+          "variable.is_holding_right = query.is_item_name_any('slot.weapon.mainhand');",
+          "variable.is_holding_left = query.is_item_name_any('slot.weapon.offhand');"
+        ],
+        "animate": [
+          "look_at_target",
+          "ctrl_movement",
+          "ctrl_attack",
+          "ctrl_shield"
+        ]
+      },
+      "animations": {
+        "look_at_target": "animation.humanoid.look_at_target.default",
+        "ctrl_movement": "controller.animation.colosseum.gladiator.movement",
+        "ctrl_attack": "controller.animation.colosseum.gladiator.attack",
+        "gladiator_idle": "animation.colosseum.gladiator.idle",
+        "move.arms": "animation.colosseum.gladiator.move.arms",
+        "move.legs": "animation.colosseum.gladiator.move.legs",
+        "sprint": "animation.colosseum.gladiator.sprint",
+        "gladiator_attack": "animation.colosseum.gladiator.attack",
+        "ctrl_shield": "controller.animation.colosseum.gladiator.shield",
+        "gladiator_block": "animation.colosseum.gladiator.block"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "enable_attachables": true
+    }
+  }
+}

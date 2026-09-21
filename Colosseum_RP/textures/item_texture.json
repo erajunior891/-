@@ -52,6 +52,18 @@
     },
     "colosseum:gladiator_medic_spawn_egg": {
       "textures": "textures/items/egg_gladiator_medic"
+    },
+    "egg_gladiator_berserk": {
+      "textures": "textures/items/egg_gladiator_berserk"
+    },
+    "colosseum:gladiator_berserk_spawn_egg": {
+      "textures": "textures/items/egg_gladiator_berserk"
+    },
+    "egg_gladiator_retiarius": {
+      "textures": "textures/items/egg_gladiator_retiarius"
+    },
+    "colosseum:gladiator_retiarius_spawn_egg": {
+      "textures": "textures/items/egg_gladiator_retiarius"
     }
   }
 }

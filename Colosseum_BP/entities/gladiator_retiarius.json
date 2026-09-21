@@ -2,7 +2,7 @@
   "format_version": "1.16.0",
   "minecraft:entity": {
     "description": {
-      "identifier": "colosseum:gladiator_medic",
+      "identifier": "colosseum:gladiator_retiarius",
       "is_spawnable": true,
       "is_summonable": true,
       "is_experimental": false,
@@ -16,7 +16,7 @@
       "minecraft:type_family": {
         "family": [
           "gladiator",
-          "gladiator_medic",
+          "gladiator_retiarius",
           "monster",
           "mob"
         ]
@@ -27,8 +27,8 @@
       },
       "minecraft:nameable": {},
       "minecraft:health": {
-        "value": 24,
-        "max": 24
+        "value": 22,
+        "max": 22
       },
       "minecraft:hurt_on_condition": {
         "damage_conditions": [
@@ -45,7 +45,7 @@
         ]
       },
       "minecraft:movement": {
-        "value": 0.28
+        "value": 0.30
       },
       "minecraft:navigation.walk": {
         "can_path_over_water": true,
@@ -60,10 +60,10 @@
         "height": 1.8
       },
       "minecraft:loot": {
-        "table": "loot_tables/entities/gladiator_medic.json"
+        "table": "loot_tables/entities/gladiator_retiarius.json"
       },
       "minecraft:equipment": {
-        "table": "loot_tables/equipment/gladiator_medic_gear.json"
+        "table": "loot_tables/equipment/gladiator_retiarius_gear.json"
       },
       "minecraft:physics": {},
       "minecraft:pushable": {
@@ -73,26 +73,14 @@
       "minecraft:scale": {
         "value": 1.0
       },
+      "minecraft:attack": {
+        "damage": 4
+      },
       "minecraft:behavior.hurt_by_target": {
         "priority": 1
       },
-      "minecraft:behavior.avoid_mob_type": {
-        "priority": 2,
-        "entity_types": [
-          {
-            "filters": {
-              "test": "is_family",
-              "subject": "other",
-              "value": "player"
-            },
-            "max_dist": 7.0,
-            "walk_speed_multiplier": 1.2,
-            "sprint_speed_multiplier": 1.45
-          }
-        ]
-      },
       "minecraft:behavior.nearest_attackable_target": {
-        "priority": 3,
+        "priority": 2,
         "must_see": false,
         "entity_types": [
           {
@@ -105,14 +93,13 @@
           }
         ]
       },
-      "minecraft:behavior.ranged_attack": {
-        "priority": 4,
-        "attack_interval_min": 2.0,
-        "attack_interval_max": 3.5,
-        "attack_radius": 18.0
-      },
-      "minecraft:shooter": {
-        "def": "minecraft:arrow"
+      "minecraft:behavior.delayed_attack": {
+        "priority": 3,
+        "speed_multiplier": 1.15,
+        "track_target": true,
+        "attack_once": false,
+        "attack_duration": 0.5,
+        "hit_delay_pct": 0.5
       },
       "minecraft:behavior.random_stroll": {
         "priority": 6,
